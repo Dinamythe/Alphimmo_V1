@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Alphimmo
+    </title>  
+
+    <style>
+
+      .logo {
+        display: inline-block;
+        height: 100%;
+      }
+
+      .icon {
+        display: inline-block;
+        height: 30px;
+        margin-left: 10px;
+      }
+
+      .head-button-disabled {
+        background-color: rgb(206, 220, 241);    
+        color: white;
+        border: none;
+        height: 36px;
+        width: 200px;
+        border-radius: 5px;
+        font-weight: bold;
+        font-size: large;
+      }
+
+      .head-button {
+        background-color: rgb(158, 183, 221);        
+        color: white;
+        border: none;
+        height: 36px;
+        width: 200px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: large;
+        transition: background-color 200ms;
+      }
+    
+      .head-button:hover {
+        background-color: rgb(172, 196, 231);
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.514)
+      }
+    
+      .head-button:active {
+        background-color: rgb(206, 220, 241);
+        size: 95%;
+      }
+
+      .div-header {
+        height: 20%;
+        min-width: 100%;
+        max-width: 100%;
+        vertical-align: top;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        background-color: rgb(224, 241, 255);
+        z-index: 1;
+      }
+
+      .div-buttons {
+        text-align: center;
+        display: inline-block;
+        vertical-align: bottom;
+        z-index: 2;
+      }
+
+      .div-main-scroll {
+        background-color: rgb(255, 251, 246); 
+        min-width: 100%;
+        max-width: 100%;
+        top: 20%;
+        left: 0px;
+        bottom: 10%;
+        position: fixed;
+        vertical-align: top;
+        overflow-y: scroll;
+      }
+
+      .div-footer {
+        height: 10%;
+        min-width: 100%;
+        max-width: 100%;
+        position: fixed;
+        vertical-align: bottom;
+        bottom: 0px;
+        left: 0px;
+        background-color: rgb(224, 241, 255);
+        z-index: 1;
+      }
+      
+      .title {
+        font-weight: bold;
+        font-size: 35px;
+        text-align: center;
+        margin-left: 40px;   
+      }
+
+      .text1 {
+        width: 1000px;
+        opacity: 0;
+        font-weight: normal;
+        font-size: 30px;
+        text-align: left;
+        margin-left: 60px;   
+        animation: fadeInAnimation1 ease 1s;
+        animation-iteration-count: 1;
+        animation-delay: 0s;
+        animation-fill-mode: forwards;
+      }
+
+      .text2 {
+        width: 1000px;
+        opacity: 0;
+        font-weight: normal;
+        font-size: 30px;
+        text-align: left;
+        margin-left: 60px;   
+        animation: fadeInAnimation1 ease 1s;
+        animation-iteration-count: 1;
+        animation-delay: 0.2s;
+        animation-fill-mode: forwards;
+      }
+
+      .text3 {
+        width: 1000px;
+        opacity: 0;
+        font-weight: normal;
+        font-size: 30px;
+        text-align: left;
+        margin-left: 60px;   
+        animation: fadeInAnimation1 ease 1s;
+        animation-iteration-count: 1;
+        animation-delay: 0.4s;
+        animation-fill-mode: forwards;
+      }
+
+      .text4 {
+        width: 1000px;
+        opacity: 0;
+        font-weight: normal;
+        font-size: 30px;
+        text-align: left;
+        margin-left: 60px;   
+        animation: fadeInAnimation1 ease 1s;
+        animation-iteration-count: 1;
+        animation-delay: 0.8s;
+        animation-fill-mode: forwards;
+      }
+
+      .paragraph-title {
+        cursor: pointer;
+      }
+      
+      .paragraph {
+        display: none;
+        width: 1000px;
+        opacity: 0;       
+        font-weight: normal;
+        font-size: 25px;
+        text-align: left;
+        margin-left: 100px;  
+        animation: fadeInAnimation2 ease 0.5s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+
+      }
+
+      .textbox{
+        font-size: 20px;
+        margin-left: 100px;
+      }
+
+      .footer{
+        font-size: 20px;
+      }
+
+      .input {
+        margin-left: 100px;
+        height: 30px;
+        width: 100px;
+        font-weight: bold;
+        font-size: large;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .input-button {
+        display: block;
+        margin-left: 100px;
+        margin-top: 30px;
+        background-color: rgb(29, 184, 63);
+        color: white;
+        border: none;
+        padding-left: 8px;
+        padding-right: 8px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: large;
+        transition: background-color 200ms;        
+      }
+
+      .input-button:hover {
+        background-color: rgb(78, 218, 108);
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.514)
+      }
+    
+      .input-button:active {
+        background-color: rgb(199, 255, 212);
+      }      
+
+      .link {
+        display: block;
+      }
+
+  
+      @keyframes fadeInAnimation1 {
+          0% {
+              opacity: 0;
+          }
+          100% {
+              opacity: 1;
+              margin-left: 10%; 
+          }         
+      }
+
+
+      @keyframes fadeInAnimation2 {
+          0% {
+              opacity: 0;
+              margin-left: 11%; 
+          }
+          100% {
+              opacity: 0.8;
+              margin-left: 12%; 
+          }         
+      }
+
+
+    </style>    
+
+  </head>
+  <body>  
+    
+    <div class="div-header">
+
+      <img class="logo" src="Images\ArchImmo.png">
+
+      <div class="div-buttons">
+        <a href="AdImmo.html">
+          <button class="head-button">
+            Présentation
+          </button>
+        </a>
+      </div>
+  
+      <div class="div-buttons">
+        <a href="Services.html">
+          <button disabled class="head-button-disabled">
+            Services
+          </button>
+        </a>
+      </div>
+  
+      
+      <div class="div-buttons">
+        <a href="Contact.html">
+          <button class="head-button">
+            Contact
+          </button>          
+        </a>
+      </div>
+  
+    </div>
+
+    <div class="div-main-scroll">
+
+      <p class="title">
+        Une palette de services avant, pendant et après l'achat, pour vous accompagner durant tout le processus d'achat à un tarif défiant toute concurrence
+      </p>
+
+      <div onclick="ToggleVisibility('p1')" class="paragraph-title">
+        <p class="text1">
+          ‣ Prise de contact, définition des besoins
+        </p>  
+      </div>
+
+      <div class="paragraph" id="p1">
+        <p>
+          Bonjour tout le monde Bonjour tout le monde Bonjour tout le monde Bonjour tout le monde Bonjour tout le monde Bonjour tout le monde Bonjour tout le monde
+          Bonjour tout le monde Bonjour tout le monde Bonjour tout le monde Bonjour tout le monde Bonjour tout le monde Bonjour tout le monde Bonjour tout le monde
+        </p>
+      </div>
+
+      <div onclick="ToggleVisibility('p2')" class="paragraph-title">
+        <p class="text2">
+          ‣ Recherche de biens immobiliers selon les critères établis
+        </p>  
+      </div>
+
+      <div class="paragraph" id="p2">
+        <p>
+          Bonjour tout le monde Bonjour tout le monde Bonjour tout le monde Bonjour tout le monde Bonjour tout le monde Bonjour tout le monde Bonjour tout le monde
+          Bonjour tout le monde Bonjour tout le monde Bonjour tout le monde Bonjour tout le monde Bonjour tout le monde Bonjour tout le monde Bonjour tout le monde
+        </p>
+      </div>
+
+      <div onclick="ToggleVisibility('p3')" class="paragraph-title">
+        <p class="text3">
+          ‣ Planification des visites, avec feedback
+        </p> 
+      </div>
+      
+      <div class="paragraph" id="p3">
+        <p>
+          Bonjour tout le monde Bonjour tout le monde Bonjour tout le monde Bonjour tout le monde Bonjour tout le monde Bonjour tout le monde Bonjour tout le monde
+          Bonjour tout le monde Bonjour tout le monde Bonjour tout le monde Bonjour tout le monde Bonjour tout le monde Bonjour tout le monde Bonjour tout le monde
+        </p>
+      </div>
+            
+      <div onclick="ToggleVisibility('p4')" class="paragraph-title">
+        <p class="text4">
+          ‣ Rédaction de l'offre d'achat aux clauses avantageuses pour l'acheteur
+        </p>  
+      </div>
+
+      <div class="paragraph" id="p4">
+        <p>
+          Bonjour tout le monde Bonjour tout le monde Bonjour tout le monde Bonjour tout le monde Bonjour tout le monde Bonjour tout le monde Bonjour tout le monde
+          Bonjour tout le monde Bonjour tout le monde Bonjour tout le monde Bonjour tout le monde Bonjour tout le monde Bonjour tout le monde Bonjour tout le monde
+        </p>
+      </div>
+
+
+      <script>
+
+        function ToggleVisibility(targetDiv) {
+          if (document.getElementById(targetDiv).style.display == "none") {
+            document.getElementById(targetDiv).style.display = "block";
+          } else {
+            document.getElementById(targetDiv).style.display = "none";
+          }  
+          document.getElementById(targetDiv).scrollIntoView({behavior: "smooth"});
+        }
+        
+      </script>
+  
+    </div>
+
+
+
+    <div class="div-footer">
+
+      <p class="footer">
+        N°BCE : 126.36.98.87        
+      </p>
+
+      <p class="footer">
+        Adresse : Chaussée d'Alsemberg 1183, 1180 UCCLE                
+      </p>
+
+    </div>
+
+  </body>
+
+</html>
+
